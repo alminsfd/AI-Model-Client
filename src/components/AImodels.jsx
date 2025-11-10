@@ -9,8 +9,8 @@ const AImodels = () => {
                         About AI Models
                     </h2>
                     <p className="text-gray-700 text-lg leading-relaxed">
-                        <span className="font-semibold">Artificial Intelligence (AI) models</span>
-                        are systems designed to learn from data and make intelligent decisions.
+                        <span className="font-semibold">Artificial Intelligence (AI) models </span>
+                         are systems designed to learn from data and make intelligent decisions.
                         They can identify patterns, predict outcomes, and even generate creative
                         content like text or images.
                         <br /><br />
