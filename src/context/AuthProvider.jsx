@@ -1,7 +1,7 @@
 //  Context provider
 import React, { useEffect, useState } from 'react';
 import { AuthContext } from './AuthContext';
-import { createUserWithEmailAndPassword, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from 'firebase/auth';
+import { createUserWithEmailAndPassword, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from 'firebase/auth';
 import { auth } from '../services/firebase.config';
 
 
@@ -39,8 +39,12 @@ const AuthProvider = ({ children }) => {
             setUser(Currentuser)
         })
 
-        return ()=> unSuscribe()
+        return () => unSuscribe()
     }, [])
+
+    const Userpadate = (obj) => {
+        return updateProfile(auth.currentUser, obj)
+    }
 
     const authInfo = {
         user,
@@ -50,7 +54,8 @@ const AuthProvider = ({ children }) => {
         logout,
         load,
         setLoad,
-        GooglesignIN
+        GooglesignIN,
+        Userpadate
     }
 
     return (

@@ -2,9 +2,12 @@ import React from 'react';
 import Navbar from '../components/Navbar';
 import useAuth from '../hooks/useAuth';
 import Swal from 'sweetalert2';
-import { Link } from 'react-router';
+import { Link, useLocation, useNavigate } from 'react-router';
 
 const Login = () => {
+    const navigate=useNavigate()
+    const location=useLocation()
+    const from=location.state?.from?.pathname || '/'
     const { login, setUser, GooglesignIN } = useAuth()
     const handleForm = (e) => {
         e.preventDefault()
@@ -28,6 +31,7 @@ const Login = () => {
                     icon: "success",
                     draggable: true
                 });
+                navigate(from,{replace:true})
 
             })
             .catch((error) => {
@@ -39,6 +43,8 @@ const Login = () => {
 
                 });
             });
+
+            e.target.reset()
 
     }
 
@@ -52,14 +58,14 @@ const Login = () => {
                     icon: "success",
                     draggable: true
                 });
-
+                 navigate(from,{replace:true})
 
             }).catch((error) => {
 
                 const errorMessage = error.message;
                 Swal.fire({
                     icon: "error",
-                    title: "Invalid email or password",
+                    title: "Invalid your gmail account",
                     text: errorMessage,
 
                 });
@@ -76,8 +82,8 @@ const Login = () => {
             <div className="hero bg-base-200 min-h-screen">
                 <div className="hero-content flex-col lg:flex-row-reverse">
                     <div className="text-center lg:text-left">
-                        <h1 className="text-5xl font-bold">Login to AI Model Inventory Manager</h1>
-                        <p className="py-6">
+                        <h1 className="  text-2xl md:text-5xl font-bold" >Login to AI Model Inventory Manager</h1>
+                        <p className="py-6 text-sm md:text-base ">
                             Empower Your AI Workflow
                             Store, manage, and collaborate on your AI models with ease.
                             Let your ideas turn into intelligent solutions.
@@ -85,8 +91,8 @@ const Login = () => {
                     </div>
                     <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
                         <div className="card-body">
-                            <h1 className='text-3xl font-semibold text-center ' >Login Now!</h1>
-                            <p className='text-center font-medium' >Don't have an account?<Link className='hover:underline text-cyan-500 hover:text-cyan-800' to='/register' >Register Now</Link></p>
+                            <h1 className=' text-lg md:text-3xl font-semibold text-center ' >Login Now!</h1>
+                            <p className='text-center font-medium' >Don't have an account?<Link state={{from}} className='hover:underline text-cyan-500 hover:text-cyan-800' to='/register' >Register Now</Link></p>
                             <form onSubmit={handleForm} >
                                 <fieldset className="fieldset">
                                     <label className="label">Email</label>
