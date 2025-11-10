@@ -7,6 +7,8 @@ import Viewmodels from "../pages/Viewmodels";
 import Login from "../pages/Login";
 import Registration from "../pages/Registration";
 import PrivateRoute from "./PrivateRoute";
+import Modelpurchaes from "../pages/Modelpurchaes";
+import Mymodelpage from "../pages/Mymodelpage";
 
 export const router = createBrowserRouter([
   {
@@ -26,7 +28,15 @@ export const router = createBrowserRouter([
       {
         path: '/viewmodels',
         Component: Viewmodels
-      }
+      },
+      {
+        path:'/purchase',
+        Component:Modelpurchaes
+      },
+      {
+        path:'/mymodel',
+        Component:Mymodelpage
+      },
     ]
   },
   {

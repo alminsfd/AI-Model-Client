@@ -2,8 +2,7 @@
 
 import React from 'react';
 import logo from '../assets/logo.png';
-import usericon from '../assets/user.png';
-import { Link, NavLink, useNavigate } from 'react-router';
+import { Link,  NavLink, useNavigate } from 'react-router';
 import useAuth from '../hooks/useAuth';
 import Swal from 'sweetalert2';
 
@@ -64,13 +63,29 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end space-x-3.5">
-                    <img src={usericon} alt="" />
                     {user ?
                         <>
+
+                            
+                            <div className="dropdown dropdown-end cursor-pointer">
+                                <div tabIndex={0} role="button" className=" m-1">
+                                    <img className='w-10 rounded-full ' src={user?.photoURL} alt="" />
+                                </div>
+                                <ul tabIndex="-1" className="dropdown-content menu bg-base-100 rounded-box z-1 w-auto p-2 shadow-sm">
+                                    <li><a >{user?.displayName}</a></li>
+                                    <li><a>{user?.email}</a></li>
+                                    <li><Link to='/purchase' >Model Purchase page</Link></li>
+                                    <li><Link to='/mymodel' >My Model page</Link></li>
+                                </ul>
+                            </div>
                             <button onClick={handlelogout} className="btn bg-info hover:bg-sky-600 text-white ">Logout</button>
 
                         </>
-                        : <Link to='/login' className="btn bg-info hover:bg-sky-600 text-white " >Login</Link>
+                        :
+                        <>
+
+                            <Link to='/login' className="btn bg-info hover:bg-sky-600 text-white " >Login</Link>
+                        </>
                     }
 
 
