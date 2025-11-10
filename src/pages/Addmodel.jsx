@@ -3,8 +3,7 @@ import Form from '../components/Form';
 
 const Addmodel = () => {
     return (
-        <div>
-           <h1>I am form addmodel</h1> 
+        <div className='flex flex-col items-center justify-center mt-10' >
            <Form></Form>
         </div>
     );
