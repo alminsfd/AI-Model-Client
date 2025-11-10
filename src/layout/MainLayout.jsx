@@ -12,7 +12,7 @@ const MainLayout = () => {
             <header>
                 <Navbar></Navbar>
             </header>
-            <main>
+            <main className='max-w-11/12 mx-auto' >
               
                 <Outlet></Outlet>
             </main>
