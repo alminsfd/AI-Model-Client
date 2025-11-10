@@ -1,31 +1,56 @@
 // Common Footer Component
 import React from 'react';
+import logo from '../assets/logo.png';
 
 const Footer = () => {
     return (
-        <div>
-            <footer className="footer sm:footer-horizontal bg-neutral text-neutral-content p-10">
+        <div className="bg-linear-to-r from-cyan-700 to-sky-400 text-neutral-content p-10 mt-20  w-full ">
+
+            <footer className="footer sm:footer-horizontal">
                 <nav>
-                    <h6 className="footer-title">Services</h6>
-                    <a className="link link-hover">Branding</a>
-                    <a className="link link-hover">Design</a>
-                    <a className="link link-hover">Marketing</a>
-                    <a className="link link-hover">Advertisement</a>
+                    <img className='w-20' src={logo} alt="AI Model Inventory Manager Logo" />
+                    <h3 className='text-xl font-bold text-white'>AI Model Inventory Manager</h3>
+                    <p className='text-sm text-[#ccc] mt-2'>
+                        Your central hub for MLOps governance and asset traceability.
+                    </p>
                 </nav>
+
                 <nav>
-                    <h6 className="footer-title">Company</h6>
-                    <a className="link link-hover">About us</a>
-                    <a className="link link-hover">Contact</a>
-                    <a className="link link-hover">Jobs</a>
-                    <a className="link link-hover">Press kit</a>
+                    <h6 className="footer-title">Model Catalog</h6>
+                    <a className="link link-hover hover:text-[#ccc] text-white">All Models Inventory</a>
+                    <a className="link link-hover hover:text-[#ccc] text-white">Search by Framework</a>
+                    <a className="link link-hover hover:text-[#ccc] text-white">Models in Production</a>
+                    <a className="link link-hover hover:text-[#ccc] text-white">Data Lineage Reports</a>
                 </nav>
+
                 <nav>
-                    <h6 className="footer-title">Legal</h6>
-                    <a className="link link-hover">Terms of use</a>
-                    <a className="link link-hover">Privacy policy</a>
-                    <a className="link link-hover">Cookie policy</a>
+                    <h6 className="footer-title">Tools & Resources</h6>
+                    <a className="link link-hover hover:text-[#ccc] text-white">API Documentation</a>
+                    <a className="link link-hover hover:text-[#ccc] text-white">Developer Guide</a>
+                    <a className="link link-hover hover:text-[#ccc] text-white">Integration Guides</a>
+                    <a className="link link-hover hover:text-[#ccc] text-white">Contact Support</a>
+                </nav>
+
+                <nav>
+                    <h6 className="footer-title">Legal & Governance</h6>
+                    <a className="link link-hover hover:text-[#ccc] text-white">Terms of Service</a>
+                    <a className="link link-hover hover:text-[#ccc] text-white">Privacy Policy (Data)</a>
+                    <a className="link link-hover hover:text-[#ccc] text-white">Model Risk Guidelines</a>
+                    <a className="link link-hover hover:text-[#ccc] text-white">Security & Trust Center</a>
+                </nav>
+
+                <nav>
+                    <h6 className="footer-title">Social Info</h6>
+                    <a className="link link-hover hover:text-[#ccc] text-white">Instagram</a>
+                    <a className="link link-hover hover:text-[#ccc] text-white"> Youtube </a>
+                    <a className="link link-hover hover:text-[#ccc] text-white">Facebook</a>
+                    <a target='_blank' href='https://github.com/alminsfd?tab=repositories' className="link link-hover hover:text-[#ccc] text-white">GitHub </a>
                 </nav>
             </footer>
+            
+            <div className="text-center mt-4 border-t border-gray-700 pt-4 text-sm font-medium text-black">
+                <p>Copyright © 2025 - All rights reserved by AI Model Inventory manager </p>
+            </div>
         </div>
     );
 };
