@@ -58,7 +58,7 @@ const Form = () => {
     }
 
     return (
-        <form onSubmit={handleFrom} className="flex flex-col gap-3 max-w-sm bg-white p-6 rounded-2xl shadow-md border border-[#ddd] relative  ">
+        <form onSubmit={handleFrom} className=" flex flex-col gap-3 max-w-sm bg-white p-6 rounded-2xl shadow-md border border-[#ddd] relative  ">
             <p className="text-3xl font-semibold text-sky-400 tracking-tight flex items-center pl-8 relative">
                 Add Model
                 <span className="absolute left-0 w-4 h-4 rounded-full bg-blue-600"></span>
