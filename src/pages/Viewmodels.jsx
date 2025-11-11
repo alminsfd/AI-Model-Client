@@ -1,9 +1,26 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import useNormalAxios from '../hooks/useNormalAxios';
+import Card from '../components/Card';
+
 
 const Viewmodels = () => {
+
+    const [cards, setCard] = useState([])
+    const instance = useNormalAxios()
+
+    useEffect(() => {
+        instance.get('/allmodels')
+            .then(data => {
+                setCard(data.data)
+            })
+    }, [])
+
+ 
+
+
     return (
         <div>
-            <h1>I am  viewmodels</h1>
+            <Card cards={cards} ></Card>
         </div>
     );
 };

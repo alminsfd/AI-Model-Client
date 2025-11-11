@@ -55,7 +55,8 @@ const AuthProvider = ({ children }) => {
         load,
         setLoad,
         GooglesignIN,
-        Userpadate
+        Userpadate,
+        
     }
 
     return (
