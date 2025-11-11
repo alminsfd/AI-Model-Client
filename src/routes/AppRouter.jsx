@@ -10,6 +10,7 @@ import PrivateRoute from "./PrivateRoute";
 import Modelpurchaes from "../pages/Modelpurchaes";
 import Mymodelpage from "../pages/Mymodelpage";
 import Deatilspage from "../pages/Deatilspage";
+import Loader from "../features/Loader";
 
 export const router = createBrowserRouter([
   {
@@ -40,8 +41,9 @@ export const router = createBrowserRouter([
       },
       {
         path:'/viewmodels/:id',
-        Component:Deatilspage
-        
+        Component:Deatilspage,
+        loader:({params})=>fetch(`http://localhost:5000/allmodels/${params.id}`),
+        hydrateFallbackElement:<Loader></Loader>
 
       },
     ]
