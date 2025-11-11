@@ -10,7 +10,7 @@ import Loader from '../features/Loader';
 
 const Modelpurchaes = () => {
     const instance = useNormalAxios();
-    const { user,  } = useAuth();
+    const { user, } = useAuth();
     const [mydata, setMydata] = useState([]);
 
     useEffect(() => {
@@ -22,13 +22,13 @@ const Modelpurchaes = () => {
                     setMydata(res.data)
                 })
                 .catch(err => console.error(err))
-                
+
 
 
         }
     }, [user]);
 
-   
+console.log(mydata)
 
     return (
         <div className="min-h-screen bg-base-200 py-10 px-4 md:px-8">
@@ -78,7 +78,7 @@ const Modelpurchaes = () => {
                                             <td>{data.createdBy}</td>
                                             <td>
                                                 <Link
-                                                    to={`/viewmodels/${data._id}`}
+                                                    to={`/viewmodels/${data.model_id}`}
                                                     className="btn btn-sm bg-cyan-500 text-white hover:bg-cyan-600"
                                                 >
                                                     Details
