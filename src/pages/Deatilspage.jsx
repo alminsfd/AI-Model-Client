@@ -14,7 +14,6 @@ const Deatilspage = () => {
         name, purchased, useCase, _id
     } = Detailsdata
     useEffect(() => {
-        console.log(user);
         if (user?.email === createdBy) {
             setIsCreator(true)
         }

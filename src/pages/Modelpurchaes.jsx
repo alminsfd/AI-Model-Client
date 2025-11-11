@@ -18,7 +18,6 @@ const Modelpurchaes = () => {
             instance
                 .get(`/purchase?email=${user.email}`)
                 .then(res => {
-                    console.log(res.data)
                     setMydata(res.data)
                 })
                 .catch(err => console.error(err))
@@ -28,19 +27,19 @@ const Modelpurchaes = () => {
         }
     }, [user]);
 
-console.log(mydata)
+
 
     return (
         <div className="min-h-screen bg-base-200 py-10 px-4 md:px-8">
             <div className="max-w-6xl mx-auto bg-white rounded-2xl shadow-lg p-6">
                 <h1 className="text-3xl font-bold text-center text-cyan-600 mb-8">
-                    My Uploaded AI Models
+                    My Purchasing AI Models
                 </h1>
 
                 {/* Empty state */}
                 {mydata.length === 0 ? (
                     <div className="text-center text-gray-500 py-10">
-                        <p>No models found. Try adding one!</p>
+                        <p>No models found. Try purchase one!</p>
                     </div>
                 ) : (
                     <>
@@ -54,6 +53,7 @@ console.log(mydata)
                                         <th>Framework</th>
                                         <th>Use Case</th>
                                         <th>Created By</th>
+                                        <th>Purchased by</th>
                                         <th>Details</th>
                                     </tr>
                                 </thead>
@@ -76,6 +76,7 @@ console.log(mydata)
                                             <td>{data.framework}</td>
                                             <td>{data.useCase}</td>
                                             <td>{data.createdBy}</td>
+                                            <td>{data.purchaseBy}</td>
                                             <td>
                                                 <Link
                                                     to={`/viewmodels/${data.model_id}`}
@@ -116,6 +117,10 @@ console.log(mydata)
                                     <p className="text-gray-600 mb-4">
                                         <span className="font-semibold text-gray-800">Created By: </span>
                                         {data.createdBy}
+                                    </p>
+                                    <p className="text-gray-600 mb-4">
+                                        <span className="font-semibold text-gray-800">PurchaseBy: </span>
+                                        {data.purchaseBy}
                                     </p>
 
                                     <Link
