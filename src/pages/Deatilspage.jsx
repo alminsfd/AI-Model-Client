@@ -28,7 +28,8 @@ const Deatilspage = () => {
         description,
         image,
         createdBy,
-        purchaseBy: user?.email
+        purchaseBy: user?.email,
+        model_id:_id
     }
 
 

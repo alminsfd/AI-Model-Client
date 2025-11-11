@@ -7,13 +7,13 @@ import Footer from '../components/Footer';
 
 
 const MainLayout = () => {
+    
     return (
         <div>
             <header>
                 <Navbar></Navbar>
             </header>
             <main className='max-w-11/12 mx-auto' >
-              
                 <Outlet></Outlet>
             </main>
             <footer>

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import useNormalAxios from '../hooks/useNormalAxios';
 import Card from '../components/Card';
+import Loader from '../features/Loader';
 
 
 const Viewmodels = () => {
@@ -8,15 +9,22 @@ const Viewmodels = () => {
     const [cards, setCard] = useState([])
     const instance = useNormalAxios()
 
+    const [load, setLoad] = useState(true)
+
     useEffect(() => {
+        setLoad(true)
         instance.get('/allmodels')
             .then(data => {
                 setCard(data.data)
             })
+            .catch(err => console.error(err))
+            .finally(() => setLoad(false));
     }, [])
 
- 
 
+    if(load){
+        return <Loader></Loader>
+    }
 
     return (
         <div>

@@ -36,6 +36,8 @@ const Navbar = () => {
         <li><NavLink to='/' >Home</NavLink></li>
         <li><NavLink to='/addmodel' >Add Model</NavLink></li>
         <li><NavLink to='/viewmodels'>View Models</NavLink></li>
+        <li><NavLink to='/mymodel'>My model</NavLink></li>
+        <li><NavLink to='/purchase'>My purchase</NavLink></li>
     </>
     return (
         <div>

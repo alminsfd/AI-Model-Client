@@ -34,26 +34,35 @@ export const router = createBrowserRouter([
       },
       {
         path: '/purchase',
-        Component: Modelpurchaes
+        element: <PrivateRoute>
+          <Modelpurchaes></Modelpurchaes>
+        </PrivateRoute>
       },
       {
         path: '/mymodel',
-        Component: Mymodelpage
+        element: <PrivateRoute>
+          <Mymodelpage></Mymodelpage>
+        </PrivateRoute>
       },
       {
         path: '/viewmodels/:id',
-        Component: Deatilspage,
+        element: <PrivateRoute>
+          <Deatilspage></Deatilspage>
+        </PrivateRoute>,
         loader: ({ params }) => fetch(`http://localhost:5000/allmodels/${params.id}`),
         hydrateFallbackElement: <Loader></Loader>
 
       },
       {
         path: '/updatemodel/:id',
-        Component: UpdataModelpage,
+        element: <PrivateRoute>
+          <UpdataModelpage></UpdataModelpage>
+        </PrivateRoute>,
         loader: ({ params }) => fetch(`http://localhost:5000/allmodels/${params.id}`),
         hydrateFallbackElement: <Loader></Loader>
 
-      }
+      },
+
     ]
   },
   {
