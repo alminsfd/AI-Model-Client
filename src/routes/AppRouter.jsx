@@ -9,6 +9,7 @@ import Registration from "../pages/Registration";
 import PrivateRoute from "./PrivateRoute";
 import Modelpurchaes from "../pages/Modelpurchaes";
 import Mymodelpage from "../pages/Mymodelpage";
+import Deatilspage from "../pages/Deatilspage";
 
 export const router = createBrowserRouter([
   {
@@ -36,6 +37,12 @@ export const router = createBrowserRouter([
       {
         path:'/mymodel',
         Component:Mymodelpage
+      },
+      {
+        path:'/viewmodels/:id',
+        Component:Deatilspage
+        
+
       },
     ]
   },

@@ -34,7 +34,7 @@ const Card = ({ cards }) => {
 
           <div className="flex justify-center mt-6">
             <Link
-              to={`/models/${card._id}`}
+              to={`/viewmodels/${card._id}`}
               className="px-6 py-2 rounded-full text-white font-semibold bg-linear-to-r from-cyan-400 to-sky-400 hover:from-cyan-500 hover:to-sky-500 transition-all duration-300"
             >
               View Details
