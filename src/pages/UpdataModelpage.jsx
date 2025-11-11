@@ -1,11 +1,13 @@
 import React from 'react';
 import useAuth from '../hooks/useAuth';
-import { useNavigate } from 'react-router';
+import { useLoaderData, useNavigate } from 'react-router';
 import useNormalAxios from '../hooks/useNormalAxios';
 import Swal from 'sweetalert2';
 
 const UpdataModelpage = () => {
 
+    const Updatedetailspage = useLoaderData()
+    const { _id, name, framework, useCase, dataset, description, image } = Updatedetailspage
     const { user } = useAuth()
     const navigate = useNavigate()
     const instance = useNormalAxios()
@@ -32,14 +34,14 @@ const UpdataModelpage = () => {
 
 
 
-        instance.patch('/allmodels', addModel)
+        instance.patch(`/allmodels/${_id}`, addModel)
             .then((data) => {
-                if (data.modifiedCount) {
+                if (data.data.modifiedCount) {
                     Swal.fire({
                         title: "AI Model update Successful",
                         icon: "success",
                     });
-                    navigate('/viewmodels')
+                    navigate(`/viewmodels/${_id}`)
                 }
                 else {
                     Swal.fire({
@@ -71,7 +73,7 @@ const UpdataModelpage = () => {
                         name="name"
                         required
                         type="text"
-                        placeholder=" Enter your model name "
+                        defaultValue={name}
                         className="peer w-full p-3 border border-gray-300 rounded-lg outline-none focus:border-cyan-500"
                     />
                 </label>
@@ -82,7 +84,7 @@ const UpdataModelpage = () => {
                         name="frameword"
                         required
                         type="text"
-                        placeholder=" Enter your framework name"
+                        defaultValue={framework}
                         className="w-full p-3 border border-gray-300 rounded-lg outline-none focus:border-blue-500 peer"
                     />
                 </label>
@@ -94,7 +96,7 @@ const UpdataModelpage = () => {
                         name="usecase"
                         required
                         type="text"
-                        placeholder=" Enter your use case "
+                        defaultValue={useCase}
                         className="w-full p-3 border border-gray-300 rounded-lg outline-none focus:border-blue-500 peer"
                     />
 
@@ -106,7 +108,7 @@ const UpdataModelpage = () => {
                         name="dataset"
                         required
                         type="text"
-                        placeholder=" Enter your dataset "
+                        defaultValue={dataset}
                         className="w-full p-3 border border-gray-300 rounded-lg outline-none focus:border-blue-500 peer"
                     />
 
@@ -118,7 +120,7 @@ const UpdataModelpage = () => {
                         name="photo"
                         required
                         type="url"
-                        placeholder="  Enter your  photo url "
+                       defaultValue={image}
                         className="w-full p-3 border border-gray-300 rounded-lg outline-none focus:border-blue-500 peer"
                     />
                 </label>
@@ -127,14 +129,14 @@ const UpdataModelpage = () => {
                         name="textfill"
                         required
                         type="text"
-                        placeholder="Add some description "
+                        defaultValue={description}
                         className="w-full p-3 border border-gray-300 rounded-lg outline-none focus:border-blue-500 peer textarea textarea-md "
                     />
                 </label>
 
 
 
-                <button type="submit" className="border-none outline-none bg-cyan-500 text-white py-2 rounded-lg text-lg hover:bg-sky-700 cursor-pointer transition">Submit</button>
+                <button type="submit" className="border-none outline-none bg-cyan-500 text-white py-2 rounded-lg text-lg hover:bg-sky-700 cursor-pointer transition">Save changes</button>
 
 
             </form>

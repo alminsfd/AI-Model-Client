@@ -33,23 +33,26 @@ export const router = createBrowserRouter([
         Component: Viewmodels
       },
       {
-        path:'/purchase',
-        Component:Modelpurchaes
+        path: '/purchase',
+        Component: Modelpurchaes
       },
       {
-        path:'/mymodel',
-        Component:Mymodelpage
+        path: '/mymodel',
+        Component: Mymodelpage
       },
       {
-        path:'/viewmodels/:id',
-        Component:Deatilspage,
-        loader:({params})=>fetch(`http://localhost:5000/allmodels/${params.id}`),
-        hydrateFallbackElement:<Loader></Loader>
+        path: '/viewmodels/:id',
+        Component: Deatilspage,
+        loader: ({ params }) => fetch(`http://localhost:5000/allmodels/${params.id}`),
+        hydrateFallbackElement: <Loader></Loader>
 
       },
       {
-        path:'/updatemodel/:id',
-        Component:UpdataModelpage,
+        path: '/updatemodel/:id',
+        Component: UpdataModelpage,
+        loader: ({ params }) => fetch(`http://localhost:5000/allmodels/${params.id}`),
+        hydrateFallbackElement: <Loader></Loader>
+
       }
     ]
   },
