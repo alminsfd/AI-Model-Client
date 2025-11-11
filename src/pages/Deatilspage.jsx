@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-import { Link, useLoaderData } from 'react-router';
+import { Link, useLoaderData, useNavigate } from 'react-router';
 import useAuth from '../hooks/useAuth';
 import useNormalAxios from '../hooks/useNormalAxios';
 import Swal from 'sweetalert2';
@@ -9,6 +9,7 @@ const Deatilspage = () => {
     const instance = useNormalAxios()
     const [isCreator, setIsCreator] = useState(false)
     const Detailsdata = useLoaderData()
+    const navigate=useNavigate()
     const { createdBy, dataset, description, framework, image,
         name, purchased, useCase, _id
     } = Detailsdata
@@ -34,7 +35,7 @@ const Deatilspage = () => {
     const handlepurchase = () => {
         instance.post('/purchase', PurchaseInfo)
             .then((data) => {
-                if (data.insertedId) {
+                if (data.data.insertedId) {
                     Swal.fire({
                         title: "Successfully purchase",
                         icon: "success",
@@ -50,6 +51,26 @@ const Deatilspage = () => {
 
             })
 
+    }
+
+    const handleDelete = () => {
+        instance.delete(`/allmodels/${_id}`)
+            .then(data => {
+                if (data.data.deletedCount) {
+                    Swal.fire({
+                        title: "Successfully delete Model",
+                        icon: "success",
+                    });
+                    navigate('/viewmodels')
+                } else {
+                    Swal.fire({
+                        icon: "error",
+                        title: "Oops...",
+                        text: "Something went wrong!",
+                    });
+                }
+
+            })
     }
 
 
@@ -102,7 +123,7 @@ const Deatilspage = () => {
                                 <>
                                     <Link to={`/updatemodel/${_id}`} className="px-6 py-3 rounded-xl border-2 border-blue-500 text-blue-600 font-semibold hover:bg-blue-50 transition">Edit</Link>
 
-                                    <button className="px-6 py-3 rounded-xl border-2 border-red-500 text-red-600 font-semibold hover:bg-red-50 transition">Delete</button>
+                                    <button onClick={handleDelete} className="px-6 py-3 rounded-xl border-2 border-red-500 text-red-600 font-semibold hover:bg-red-50 transition">Delete</button>
                                 </>
                             ) :
                                 <button

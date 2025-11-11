@@ -36,7 +36,7 @@ const Form = () => {
 
         instance.post('/allmodels', addModel)
             .then((data) => {
-                if (data.insertedId) {
+                if (data.data.insertedId) {
                     Swal.fire({
                         title: "AI Model add Successful",
                         icon: "success",
@@ -53,6 +53,8 @@ const Form = () => {
                 }
 
             })
+
+            e.target.reset()
 
 
     }
