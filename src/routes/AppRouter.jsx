@@ -11,6 +11,7 @@ import Modelpurchaes from "../pages/Modelpurchaes";
 import Mymodelpage from "../pages/Mymodelpage";
 import Deatilspage from "../pages/Deatilspage";
 import Loader from "../features/Loader";
+import UpdataModelpage from "../pages/UpdataModelpage";
 
 export const router = createBrowserRouter([
   {
@@ -46,6 +47,10 @@ export const router = createBrowserRouter([
         hydrateFallbackElement:<Loader></Loader>
 
       },
+      {
+        path:'/updatemodel/:id',
+        Component:UpdataModelpage,
+      }
     ]
   },
   {

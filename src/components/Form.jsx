@@ -8,7 +8,7 @@ import { useNavigate } from "react-router";
 const Form = () => {
 
     const { user } = useAuth()
-    const navigate=useNavigate()
+    const navigate = useNavigate()
     const instance = useNormalAxios()
 
     const handleFrom = (e) => {
@@ -35,14 +35,23 @@ const Form = () => {
 
 
         instance.post('/allmodels', addModel)
-            .then(() => {
-                Swal.fire({
-                    title: "AI Model add Successful",
-                    icon: "success",
-                    draggable: true
-                });
-                
-                navigate('/viewmodels')
+            .then((data) => {
+                if (data.insertedId) {
+                    Swal.fire({
+                        title: "AI Model add Successful",
+                        icon: "success",
+                        draggable: true
+                    });
+                    navigate('/viewmodels')
+                }
+                else {
+                    Swal.fire({
+                        icon: "error",
+                        title: "Oops...",
+                        text: "Something went wrong!",
+                    });
+                }
+
             })
 
 

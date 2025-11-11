@@ -2,9 +2,10 @@
 
 import React from 'react';
 import logo from '../assets/logo.png';
-import { Link,  NavLink, useNavigate } from 'react-router';
+import { Link, NavLink, useNavigate } from 'react-router';
 import useAuth from '../hooks/useAuth';
 import Swal from 'sweetalert2';
+
 
 
 const Navbar = () => {
@@ -66,10 +67,12 @@ const Navbar = () => {
                     {user ?
                         <>
 
-                            
+
                             <div className="dropdown dropdown-end cursor-pointer">
                                 <div tabIndex={0} role="button" className=" m-1">
-                                    <img className='w-10 rounded-full ' src={user?.photoURL} alt="" />
+                                    <img className='w-10 rounded-full ' src={user?.photoURL} alt="" 
+                                    referrerPolicy='no-referrer'/>
+                                    
                                 </div>
                                 <ul tabIndex="-1" className="dropdown-content menu bg-base-100 rounded-box z-1 w-auto p-2 shadow-sm">
                                     <li><a >{user?.displayName}</a></li>
