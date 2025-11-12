@@ -3,42 +3,42 @@ import React, { useEffect } from 'react';
 import useAuth from './useAuth';
 import { useNavigate } from 'react-router';
 
+const instance = axios.create({
+  baseURL: 'http://localhost:5000',
+});
+
 const useSurureAxios = () => {
-    const navigate=useNavigate()
-    const { user , logout} = useAuth()
-    const instance = axios.create({
-        baseURL: 'http://localhost:5000',
+  const navigate = useNavigate();
+  const { user, logout } = useAuth();
+
+  useEffect(() => {
+    const reqInterceptor = instance.interceptors.request.use((config) => {
+      const token = user?.accessToken;
+      if (token) {
+        config.headers.Authorization = `Bearer ${token}`;
+      }
+      return config;
     });
 
-    useEffect(() => {
-        const reqInterceptor = axios.interceptors.request.use((config) => {
-            const Token = user.accessToken
-            if (Token) {
-                config.headers.Authorization = `Bearer ${Token}`
-            }
-            return config
-        })
-
-        const responceInterceptor = axios.interceptors.response.use(res => {
-            return res
-        }, err => {
-            const status=err.status
-            if(status===401 ||status===403){
-                 logout()
-                 .then(()=>{
-                    navigate('/login')
-                 })
-
-            }
-        })
-
-        return () => {
-            axios.interceptors.request.eject(reqInterceptor)
-            axios.interceptors.response.eject(responceInterceptor)
+    const resInterceptor = instance.interceptors.response.use(
+      (res) => res,
+      async (err) => {
+        const status = err.response?.status;
+        if (status === 401 || status === 403) {
+          await logout();
+          navigate('/login');
         }
-    }, [user,logout,navigate])
+        return Promise.reject(err); 
+      }
+    );
 
-    return instance
+    return () => {
+      instance.interceptors.request.eject(reqInterceptor);
+      instance.interceptors.response.eject(resInterceptor);
+    };
+  }, [user, logout, navigate]);
+
+  return instance;
 };
 
 export default useSurureAxios;

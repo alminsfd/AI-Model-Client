@@ -9,13 +9,14 @@ import HomepageCard from '../components/HomepageCard';
 import Loader from '../features/Loader';
 
 
+
 const Home = () => {
     const instance = useNormalAxios()
     const [cards, setCards] = useState([])
     const [load, setLoad] = useState(true)
     useEffect(() => {
         setLoad(true)
-        instance.get('allmodel')
+        instance.get('/leatest/allmodel')
             .then(res => {
                 setCards(res.data)
             })

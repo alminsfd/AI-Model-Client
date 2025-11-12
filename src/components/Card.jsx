@@ -3,8 +3,10 @@
 import React from "react";
 import { Link } from "react-router";
 
+
 const Card = ({ cards }) => {
   return (
+    <>
     <div className="mx-auto py-10 grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 place-items-center">
       {cards.map((card) => (
         <div
@@ -50,6 +52,8 @@ const Card = ({ cards }) => {
         </div>
       ))}
     </div>
+    </>
+    
   );
 };
 

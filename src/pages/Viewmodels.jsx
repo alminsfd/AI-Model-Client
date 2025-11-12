@@ -2,13 +2,14 @@ import React, { useEffect, useState } from 'react';
 import useNormalAxios from '../hooks/useNormalAxios';
 import Card from '../components/Card';
 import Loader from '../features/Loader';
+import SearchBar from '../components/Searchbar';
+
 
 
 const Viewmodels = () => {
 
     const [cards, setCard] = useState([])
     const instance = useNormalAxios()
-
     const [load, setLoad] = useState(true)
 
     useEffect(() => {
@@ -28,6 +29,9 @@ const Viewmodels = () => {
 
     return (
         <div>
+           <div className='flex items-center justify-center mt-10' >
+             <SearchBar setCard={setCard} ></SearchBar>
+           </div>
             <Card cards={cards} ></Card>
         </div>
     );
