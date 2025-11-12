@@ -9,36 +9,43 @@ const Card = ({ cards }) => {
       {cards.map((card) => (
         <div
           key={card._id}
-          className="w-[320px] bg-linear-to-br from-cyan-600 to-sky-500 shadow-lg hover:shadow-2xl rounded-2xl p-6 transform hover:-translate-y-2 hover:scale-[1.02] transition-all duration-300"
+          className="w-[340px] bg-linear-to-bl from-cyan-100 via-sky-300 to-teal-400  rounded-2xl shadow-md hover:shadow-xl transition-all duration-300"
         >
-          <div className="overflow-hidden rounded-xl">
+          {/* Image */}
+          <div className="overflow-hidden rounded-t-2xl">
             <img
-              className="w-full h-[220px] object-cover rounded-xl hover:scale-105 transition-transform duration-500"
               src={card.image}
               alt={card.name}
+              className="w-full h-[200px] object-cover hover:scale-105 transition-transform duration-500"
             />
           </div>
 
-          <h2 className="text-center text-white font-bold text-2xl mt-4">
-            {card.name}
-          </h2>
+          {/* Content */}
+          <div className="p-5">
+            <h2 className="text-xl font-semibold text-white">
+              {card.name}
+            </h2>
 
-          <div className="text-white/90 space-y-1 mt-3">
-            <p className="text-sm">
-              <span className="font-semibold">Framework:</span> {card.framework}
-            </p>
-            <p className="text-sm">
-              <span className="font-semibold">Use Case:</span> {card.useCase}
-            </p>
-          </div>
+            <div className="text-white mt-2 space-y-1">
+              <p className="text-sm">
+                <span className="font-semibold">Framework:</span> {card.framework}
+              </p>
+              <p className="text-sm">
+                <span className="font-semibold">Use Case:</span> {card.useCase}
+              </p>
+            </div>
 
-          <div className="flex justify-center mt-6">
-            <Link
-              to={`/viewmodels/${card._id}`}
-              className="px-6 py-2 rounded-full text-white font-semibold bg-linear-to-r from-cyan-400 to-sky-400 hover:from-cyan-500 hover:to-sky-500 transition-all duration-300"
-            >
-              View Details
-            </Link>
+            {/* Footer */}
+            <div className="flex justify-between items-center mt-5 pt-3 border-t border-gray-200">
+             
+              <Link
+                to={`/viewmodels/${card._id}`}
+                className="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-blue-700 transition-colors"
+              >
+                View Details
+              </Link>
+              <Link to='/' className="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-blue-700 transition-colors" >Go back</Link>
+            </div>
           </div>
         </div>
       ))}
