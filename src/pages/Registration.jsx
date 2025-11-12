@@ -135,7 +135,7 @@ const Registration = () => {
     return (
         <div>
             <header>
-                <title>ai-model-manager-register</title>
+                <title>ai-model-manager</title>
                 <Navbar></Navbar>
             </header>
             <div className="hero bg-base-200 min-h-screen">

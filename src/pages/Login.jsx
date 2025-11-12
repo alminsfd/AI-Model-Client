@@ -76,7 +76,7 @@ const Login = () => {
     return (
         <div>
             <header>
-                <title>ai-model-manager-login</title>
+                <title>ai-model-manager</title>
                 <Navbar></Navbar>
             </header>
             <div className="hero bg-base-200 min-h-screen">
