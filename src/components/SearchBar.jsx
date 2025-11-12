@@ -5,13 +5,16 @@ import useNormalAxios from "../hooks/useNormalAxios";
 
 const SearchBar = ({ placeholder = "Search...",setCard }) => {
     const [query, setQuery] = useState("");
+    const [load,setLoad]=useState(false)
     const instance = useNormalAxios();
     const handleSubmit = (e) => {
+        setLoad(true)
         e.preventDefault();
-        if(!query) return
+        if(!query) return setLoad(false)
         instance.get(`/search?search=${query}`)
             .then(res => {
                 setCard(res.data)
+                setLoad(false)
                 
             })
 
@@ -40,8 +43,10 @@ const SearchBar = ({ placeholder = "Search...",setCard }) => {
             <button
                 type="submit"
                 className="bg-sky-500 text-white px-5 py-2 font-medium hover:bg-sky-900 transition-all duration-300 cursor-pointer "
-            >
-                search
+            >{
+                load?"searching...":"search"
+            }
+                
             </button>
         </form>
     );

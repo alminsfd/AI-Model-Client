@@ -9,10 +9,11 @@ const Deatilspage = () => {
     const instance = useNormalAxios()
     const [isCreator, setIsCreator] = useState(false)
     const Detailsdata = useLoaderData()
-    const navigate=useNavigate()
-    const { createdBy, dataset, description, framework, image,
+    const navigate = useNavigate()
+    let { createdBy, dataset, description, framework, image,
         name, purchased, useCase, _id
     } = Detailsdata
+    let [purchaseCount, setPurchasedCount] = useState(purchased)
     useEffect(() => {
         if (user?.email === createdBy) {
             setIsCreator(true)
@@ -28,7 +29,7 @@ const Deatilspage = () => {
         image,
         createdBy,
         purchaseBy: user?.email,
-        model_id:_id
+        model_id: _id
     }
 
 
@@ -36,6 +37,7 @@ const Deatilspage = () => {
         instance.post('/purchase', PurchaseInfo)
             .then((data) => {
                 if (data.data.insertedId) {
+                    setPurchasedCount(++purchaseCount)
                     Swal.fire({
                         title: "Successfully purchase",
                         icon: "success",
@@ -47,9 +49,11 @@ const Deatilspage = () => {
                         text: "Something went wrong!",
                     });
                 }
-
-
             })
+
+        instance.patch('/updatepurchase', PurchaseInfo)
+           
+
 
     }
 
@@ -111,7 +115,7 @@ const Deatilspage = () => {
                         <div className="p-4 rounded-xl bg-cyan-50 border border-cyan-100">
                             <p className="font-semibold text-gray-800">Purchased Count</p>
                             <p className="text-gray-600">
-                                Purchased {purchased} times
+                                Purchased {purchaseCount} times
                             </p>
                         </div>
                     </div>
@@ -152,3 +156,4 @@ const Deatilspage = () => {
 ;
 
 export default Deatilspage;
+
