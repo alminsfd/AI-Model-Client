@@ -12,11 +12,13 @@ import Mymodelpage from "../pages/Mymodelpage";
 import Deatilspage from "../pages/Deatilspage";
 import Loader from "../features/Loader";
 import UpdataModelpage from "../pages/UpdataModelpage";
+import Errorpage from "../pages/Errorpage";
 
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout></MainLayout>,
+    errorElement:<Errorpage></Errorpage>,
     children: [
       {
         index: true,
