@@ -29,7 +29,8 @@ const HomepageCard = ({cards}) => {
                                 <span className="font-semibold">Framework:</span> {card.framework}
                             </p>
                             <p className="text-sm">
-                                <span className="font-semibold">Use Case:</span> {card.useCase}
+                                <span className="font-semibold">Brif:</span> {card.description.length>20?
+                                card.description.slice(0,20)+'....':card.description}
                             </p>
                         </div>
 
@@ -38,11 +39,11 @@ const HomepageCard = ({cards}) => {
 
                             <Link
                                 to={`/viewmodels/${card._id}`}
-                                className="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-blue-700 transition-colors"
+                                className="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-blue-700 transition-colors w-full text-center "
                             >
                                 View Details
                             </Link>
-                            <Link to='/' className="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-blue-700 transition-colors" >Go back</Link>
+                            
                         </div>
                     </div>
                 </div>
@@ -52,3 +53,4 @@ const HomepageCard = ({cards}) => {
 };
 
 export default HomepageCard;
+
