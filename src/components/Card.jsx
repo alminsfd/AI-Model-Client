@@ -5,7 +5,6 @@ import { Link } from "react-router";
 
 
 const Card = ({ cards }) => {
-  console.log(cards);
   return (
     <>
 

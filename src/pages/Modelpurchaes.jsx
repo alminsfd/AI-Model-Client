@@ -115,11 +115,11 @@ const Modelpurchaes = () => {
                                         <span className=" dark:text-white font-semibold text-gray-800">Use Case: </span>
                                         {data.useCase}
                                     </p>
-                                    <p className="  dark:text-white text-gray-600 mb-4">
+                                    <p className="  dark:text-white text-gray-600 mb-4 wrap-break-word ">
                                         <span className=" dark:text-white font-semibold text-gray-800">Created By: </span>
                                         {data.createdBy}
                                     </p>
-                                    <p className="   dark:text-white text-gray-600 mb-4">
+                                    <p className="   dark:text-white text-gray-600 mb-4 wrap-break-word ">
                                         <span className="font-semibold  dark:text-white text-gray-800">PurchaseBy: </span>
                                         {data.purchaseBy}
                                     </p>

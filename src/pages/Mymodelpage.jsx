@@ -118,7 +118,7 @@ const Mymodelpage = () => {
                     </span>{' '}
                     {data.useCase}
                   </p>
-                  <p className="text-gray-600 dark:text-gray-300 mb-4">
+                  <p className="text-gray-600 dark:text-gray-300 mb-4 wrap-break-word ">
                     <span className="font-semibold text-gray-800 dark:text-gray-200">
                       Created By:
                     </span>{' '}
