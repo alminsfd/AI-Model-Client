@@ -34,7 +34,7 @@ const Modelpurchaes = () => {
 
     return (
         load? (<Loader></Loader>):(<div className="min-h-screen bg-base-200 py-10 px-4 md:px-8">
-            <div className="max-w-6xl mx-auto bg-white rounded-2xl shadow-lg p-6">
+            <div className="max-w-6xl mx-auto dark:bg-gray-800 bg-white rounded-2xl shadow-lg p-6">
                 <h1 className="text-3xl font-bold text-center text-cyan-600 mb-8">
                     My Purchasing AI Models
                 </h1>
@@ -49,7 +49,7 @@ const Modelpurchaes = () => {
                         {/* ✅ Desktop Table View */}
                         <div className="hidden lg:block overflow-x-auto">
                             <table className="table w-full table-zebra">
-                                <thead className="bg-cyan-100 text-cyan-800">
+                                <thead className=" dark:bg-cyan-700 bg-cyan-100  text-cyan-800 dark:text-white  ">
                                     <tr>
                                         <th>Image</th>
                                         <th>Name</th>
@@ -60,11 +60,11 @@ const Modelpurchaes = () => {
                                         <th>Details</th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tbody  className='dark:bg-gray-900' >
                                     {mydata.map((data) => (
                                         <tr
                                             key={data._id}
-                                            className="hover:bg-cyan-50 transition-all"
+                                            className="hover:bg-cyan-50  hover:dark:bg-gray-800 transition-all"
                                         >
                                             <td>
                                                 <div className="flex items-center gap-3">
@@ -95,11 +95,11 @@ const Modelpurchaes = () => {
                         </div>
 
                         {/* ✅ Mobile & Tablet Card View */}
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:hidden">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:hidden  ">
                             {mydata.map((data) => (
                                 <div
                                     key={data._id}
-                                    className="bg-base-100 border border-gray-200 rounded-xl shadow-md p-5 hover:shadow-lg transition-all"
+                                    className="  bg-base-100 border border-gray-200 rounded-xl shadow-md p-5 hover:shadow-lg transition-all"
                                 >
                                     <div className="flex items-center gap-4 mb-4">
                                         <img
@@ -108,21 +108,21 @@ const Modelpurchaes = () => {
                                             className="w-16 h-16 rounded-lg object-cover"
                                         />
                                         <div>
-                                            <h2 className="text-xl font-semibold text-gray-800">{data.name}</h2>
-                                            <p className="text-sm text-gray-500">{data.framework}</p>
+                                            <h2 className="text-xl font-semibold  dark:text-white text-gray-800">{data.name}</h2>
+                                            <p className="text-sm dark:text-white text-gray-500">{data.framework}</p>
                                         </div>
                                     </div>
 
-                                    <p className="text-gray-600 mb-2">
-                                        <span className="font-semibold text-gray-800">Use Case: </span>
+                                    <p className="   dark:text-white text-gray-600 mb-2">
+                                        <span className=" dark:text-white font-semibold text-gray-800">Use Case: </span>
                                         {data.useCase}
                                     </p>
-                                    <p className="text-gray-600 mb-4">
-                                        <span className="font-semibold text-gray-800">Created By: </span>
+                                    <p className="  dark:text-white text-gray-600 mb-4">
+                                        <span className=" dark:text-white font-semibold text-gray-800">Created By: </span>
                                         {data.createdBy}
                                     </p>
-                                    <p className="text-gray-600 mb-4">
-                                        <span className="font-semibold text-gray-800">PurchaseBy: </span>
+                                    <p className="   dark:text-white text-gray-600 mb-4">
+                                        <span className="font-semibold  dark:text-white text-gray-800">PurchaseBy: </span>
                                         {data.purchaseBy}
                                     </p>
 

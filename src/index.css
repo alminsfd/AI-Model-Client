@@ -1,12 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 @import "tailwindcss";
 @plugin "daisyui";
-
-@plugin "daisyui/theme" {
-    name: "light";
-    default: true;
-   
+@plugin "daisyui" {
+  themes: winter --default, night --prefersdark;
 }
+
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 .simple-btn{
     @apply bg-linear-to-r from-cyan-700 to-sky-400 hover:from-sky-400 hover:to-cyan-700 transition-all duration-500 mt-4 text-white px-6 py-2 rounded-lg font-semibold cursor-pointer 
 }

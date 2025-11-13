@@ -20,7 +20,7 @@ const Models = [
 
 const Slider = () => {
     return (
-        <div className='mt-20' >
+        <div className='mt-30' >
             <div className="my-12 max-w-7xl mx-auto px-4">
 
                 <h2 className="text-center text-3xl md:text-5xl font-extrabold mb-8 bg-linear-to-r from-sky-500 via-cyan-500 to-blue-500 bg-clip-text text-transparent">
