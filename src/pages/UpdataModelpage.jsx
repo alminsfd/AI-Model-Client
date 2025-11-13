@@ -149,7 +149,7 @@ const UpdataModelpage = () => {
        <button
         type="submit"
         disabled={load}
-        className={`mt-2 py-2 rounded-lg text-lg font-medium text-white transition-all
+        className={`mt-2 py-2 rounded-lg text-lg font-medium text-white transition-all cursor-pointer
           ${load
             ? "bg-gray-400 cursor-not-allowed"
             : "bg-cyan-500 hover:bg-sky-700 dark:hover:bg-cyan-400"}`}
