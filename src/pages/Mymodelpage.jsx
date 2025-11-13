@@ -7,124 +7,126 @@ import Loader from '../features/Loader';
 
 const Mymodelpage = () => {
     const instance = useNormalAxios();
-    const { user,  } = useAuth();
+    const { user, } = useAuth();
     const [mydata, setMydata] = useState([]);
-
+    const [load, setLoad] = useState(false)
     useEffect(() => {
-        
+        setLoad(true)
         if (user?.email) {
             instance
                 .get(`/allmodels?email=${user.email}`)
                 .then(res => setMydata(res.data))
                 .catch(err => console.error(err))
-                
-            }
-  }, [user]);
+                .finally(()=>setLoad(false))
+
+        }
+    }, [user]);
 
 
 
-return (
-    <div className="min-h-screen bg-base-200 py-10 px-4 md:px-8">
-        <div className="max-w-6xl mx-auto bg-white rounded-2xl shadow-lg p-6">
-            <h1 className="text-3xl font-bold text-center text-cyan-600 mb-8">
-                My Uploaded AI Models
-            </h1>
+    return (
+        load ? (<Loader></Loader>) : (<div className="min-h-screen bg-base-200 py-10 px-4 md:px-8">
+            <div className="max-w-6xl mx-auto bg-white rounded-2xl shadow-lg p-6">
+                <h1 className="text-3xl font-bold text-center text-cyan-600 mb-8">
+                    My Uploaded AI Models
+                </h1>
 
-            {/* Empty state */}
-            {mydata.length === 0 ? (
-                <div className="text-center text-gray-500 py-10">
-                    <p>No models found. Try adding one!</p>
-                </div>
-            ) : (
-                <>
-                    {/* ✅ Desktop Table View */}
-                    <div className="hidden lg:block overflow-x-auto">
-                        <table className="table w-full table-zebra">
-                            <thead className="bg-cyan-100 text-cyan-800">
-                                <tr>
-                                    <th>Image</th>
-                                    <th>Name</th>
-                                    <th>Framework</th>
-                                    <th>Use Case</th>
-                                    <th>Created By</th>
-                                    <th>Details</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {mydata.map((data) => (
-                                    <tr
-                                        key={data._id}
-                                        className="hover:bg-cyan-50 transition-all"
-                                    >
-                                        <td>
-                                            <div className="flex items-center gap-3">
-                                                <div className="avatar">
-                                                    <div className="mask mask-squircle h-12 w-12">
-                                                        <img src={data.image} alt={data.name} />
+                {/* Empty state */}
+                {mydata.length === 0 ? (
+                    <div className="text-center text-gray-500 py-10">
+                        <p>No models found. Try adding one!</p>
+                    </div>
+                ) : (
+                    <>
+                        {/* ✅ Desktop Table View */}
+                        <div className="hidden lg:block overflow-x-auto">
+                            <table className="table w-full table-zebra">
+                                <thead className="bg-cyan-100 text-cyan-800">
+                                    <tr>
+                                        <th>Image</th>
+                                        <th>Name</th>
+                                        <th>Framework</th>
+                                        <th>Use Case</th>
+                                        <th>Created By</th>
+                                        <th>Details</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {mydata.map((data) => (
+                                        <tr
+                                            key={data._id}
+                                            className="hover:bg-cyan-50 transition-all"
+                                        >
+                                            <td>
+                                                <div className="flex items-center gap-3">
+                                                    <div className="avatar">
+                                                        <div className="mask mask-squircle h-12 w-12">
+                                                            <img src={data.image} alt={data.name} />
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </td>
-                                        <td className="font-medium">{data.name}</td>
-                                        <td>{data.framework}</td>
-                                        <td>{data.useCase}</td>
-                                        <td>{data.createdBy}</td>
-                                        <td>
-                                            <Link
-                                                to={`/viewmodels/${data._id}`}
-                                                className="btn btn-sm bg-cyan-500 text-white hover:bg-cyan-600"
-                                            >
-                                                Details
-                                            </Link>
-                                        </td>
-                                    </tr>
-                                ))}
-                            </tbody>
-                        </table>
-                    </div>
+                                            </td>
+                                            <td className="font-medium">{data.name}</td>
+                                            <td>{data.framework}</td>
+                                            <td>{data.useCase}</td>
+                                            <td>{data.createdBy}</td>
+                                            <td>
+                                                <Link
+                                                    to={`/viewmodels/${data._id}`}
+                                                    className="btn btn-sm bg-cyan-500 text-white hover:bg-cyan-600"
+                                                >
+                                                    Details
+                                                </Link>
+                                            </td>
+                                        </tr>
+                                    ))}
+                                </tbody>
+                            </table>
+                        </div>
 
-                    {/* ✅ Mobile & Tablet Card View */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:hidden">
-                        {mydata.map((data) => (
-                            <div
-                                key={data._id}
-                                className="bg-base-100 border border-gray-200 rounded-xl shadow-md p-5 hover:shadow-lg transition-all"
-                            >
-                                <div className="flex items-center gap-4 mb-4">
-                                    <img
-                                        src={data.image}
-                                        alt={data.name}
-                                        className="w-16 h-16 rounded-lg object-cover"
-                                    />
-                                    <div>
-                                        <h2 className="text-xl font-semibold text-gray-800">{data.name}</h2>
-                                        <p className="text-sm text-gray-500">{data.framework}</p>
-                                    </div>
-                                </div>
-
-                                <p className="text-gray-600 mb-2">
-                                    <span className="font-semibold text-gray-800">Use Case: </span>
-                                    {data.useCase}
-                                </p>
-                                <p className="text-gray-600 mb-4">
-                                    <span className="font-semibold text-gray-800">Created By: </span>
-                                    {data.createdBy}
-                                </p>
-
-                                <Link
-                                    to={`/viewmodels/${data._id}`}
-                                    className="btn btn-sm w-full bg-cyan-500 text-white hover:bg-cyan-600"
+                        {/* ✅ Mobile & Tablet Card View */}
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:hidden">
+                            {mydata.map((data) => (
+                                <div
+                                    key={data._id}
+                                    className="bg-base-100 border border-gray-200 rounded-xl shadow-md p-5 hover:shadow-lg transition-all"
                                 >
-                                    View Details
-                                </Link>
-                            </div>
-                        ))}
-                    </div>
-                </>
-            )}
-        </div>
-    </div>
-);
+                                    <div className="flex items-center gap-4 mb-4">
+                                        <img
+                                            src={data.image}
+                                            alt={data.name}
+                                            className="w-16 h-16 rounded-lg object-cover"
+                                        />
+                                        <div>
+                                            <h2 className="text-xl font-semibold text-gray-800">{data.name}</h2>
+                                            <p className="text-sm text-gray-500">{data.framework}</p>
+                                        </div>
+                                    </div>
+
+                                    <p className="text-gray-600 mb-2">
+                                        <span className="font-semibold text-gray-800">Use Case: </span>
+                                        {data.useCase}
+                                    </p>
+                                    <p className="text-gray-600 mb-4">
+                                        <span className="font-semibold text-gray-800">Created By: </span>
+                                        {data.createdBy}
+                                    </p>
+
+                                    <Link
+                                        to={`/viewmodels/${data._id}`}
+                                        className="btn btn-sm w-full bg-cyan-500 text-white hover:bg-cyan-600"
+                                    >
+                                        View Details
+                                    </Link>
+                                </div>
+                            ))}
+                        </div>
+                    </>
+                )}
+            </div>
+        </div>)
+
+    );
 };
 
 export default Mymodelpage;

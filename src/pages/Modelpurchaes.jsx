@@ -12,8 +12,10 @@ const Modelpurchaes = () => {
     const instance = useNormalAxios();
     const { user, } = useAuth();
     const [mydata, setMydata] = useState([]);
+    const [load,setLoad]=useState(false)
 
     useEffect(() => {
+        setLoad(true)
         if (user?.email) {
             instance
                 .get(`/purchase?email=${user.email}`)
@@ -21,6 +23,7 @@ const Modelpurchaes = () => {
                     setMydata(res.data)
                 })
                 .catch(err => console.error(err))
+                .finally(()=>setLoad(false))
 
 
 
@@ -30,7 +33,7 @@ const Modelpurchaes = () => {
 
 
     return (
-        <div className="min-h-screen bg-base-200 py-10 px-4 md:px-8">
+        load? (<Loader></Loader>):(<div className="min-h-screen bg-base-200 py-10 px-4 md:px-8">
             <div className="max-w-6xl mx-auto bg-white rounded-2xl shadow-lg p-6">
                 <h1 className="text-3xl font-bold text-center text-cyan-600 mb-8">
                     My Purchasing AI Models
@@ -135,7 +138,8 @@ const Modelpurchaes = () => {
                     </>
                 )}
             </div>
-        </div>
+        </div>)
+        
     );
 };
 
