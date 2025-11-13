@@ -3,7 +3,7 @@ import axios from 'axios';
 
 const useNormalAxios = () => {
     const instance = axios.create({
-        baseURL: 'http://localhost:5000',
+        baseURL: 'https://ai-model-server-ashen.vercel.app',
     });
 
     return instance
