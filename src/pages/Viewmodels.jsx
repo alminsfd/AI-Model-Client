@@ -39,7 +39,7 @@ const Viewmodels = () => {
   if (load) return <Loader />;
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-50 via-slate-100 to-slate-200 dark:from-gray-900 dark:via-gray-950 dark:to-black px-4 py-10 transition-colors duration-500">
+    <div className="min-h-screen bg-linear-to-b from-slate-50 via-slate-100 to-slate-200 dark:from-gray-900 dark:via-gray-950 dark:to-black px-4 py-10 transition-colors duration-500">
       {/* Header and Filters */}
       <div className="flex flex-col sm:flex-row items-center justify-between gap-6 mb-10 max-w-6xl mx-auto">
         {/* Search Bar */}

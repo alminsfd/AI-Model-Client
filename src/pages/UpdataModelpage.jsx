@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import useAuth from '../hooks/useAuth';
 import { useLoaderData, useNavigate } from 'react-router';
 import useNormalAxios from '../hooks/useNormalAxios';
@@ -11,9 +11,11 @@ const UpdataModelpage = () => {
   const { user } = useAuth();
   const navigate = useNavigate();
   const instance = useNormalAxios();
+  const [load, setLoad] = useState(false);
 
   const handleFrom = (e) => {
     e.preventDefault();
+     setLoad(true);
 
     const model = e.target.name.value;
     const framework = e.target.frameword.value;
@@ -34,7 +36,8 @@ const UpdataModelpage = () => {
       purchased: 0,
     };
 
-    instance.patch(`/allmodels/${_id}`, addModel).then((data) => {
+    instance.patch(`/allmodels/${_id}`, addModel)
+    .then((data) => {
       if (data.data.modifiedCount) {
         Swal.fire({
           title: 'AI Model Updated Successfully!',
@@ -52,7 +55,8 @@ const UpdataModelpage = () => {
           color: '#e2e8f0',
         });
       }
-    });
+    })
+    .finally(() => setLoad(false));
   };
 
   return (
@@ -142,13 +146,20 @@ const UpdataModelpage = () => {
           />
         </label>
 
-        <button
-          type="submit"
-          className="border-none outline-none bg-cyan-500 text-white py-2 rounded-lg text-lg 
-                     hover:bg-sky-700 transition-all duration-300 dark:bg-sky-600 dark:hover:bg-sky-700"
-        >
-          Save Changes
-        </button>
+       <button
+        type="submit"
+        disabled={load}
+        className={`mt-2 py-2 rounded-lg text-lg font-medium text-white transition-all
+          ${load
+            ? "bg-gray-400 cursor-not-allowed"
+            : "bg-cyan-500 hover:bg-sky-700 dark:hover:bg-cyan-400"}`}
+      >
+        {load ? (
+          <span className="loading loading-spinner loading-sm"></span>
+        ) : (
+          "Submit"
+        )}
+      </button>
       </form>
     </div>
   );

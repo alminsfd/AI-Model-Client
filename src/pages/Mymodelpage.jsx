@@ -89,7 +89,7 @@ const Mymodelpage = () => {
               </table>
             </div>
 
-            {/* ✅ Mobile & Tablet Card View */}
+            {/*  Mobile & Tablet Card View */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:hidden">
               {mydata.map((data) => (
                 <div

@@ -1,6 +1,3 @@
-
-
-
 import React, { useEffect, useState } from 'react';
 import useNormalAxios from '../hooks/useNormalAxios';
 import useAuth from '../hooks/useAuth';
@@ -46,7 +43,7 @@ const Modelpurchaes = () => {
                     </div>
                 ) : (
                     <>
-                        {/* ✅ Desktop Table View */}
+                        {/*  Desktop Table View */}
                         <div className="hidden lg:block overflow-x-auto">
                             <table className="table w-full table-zebra">
                                 <thead className=" dark:bg-cyan-700 bg-cyan-100  text-cyan-800 dark:text-white  ">
@@ -62,6 +59,7 @@ const Modelpurchaes = () => {
                                 </thead>
                                 <tbody  className='dark:bg-gray-900' >
                                     {mydata.map((data) => (
+                                        
                                         <tr
                                             key={data._id}
                                             className="hover:bg-cyan-50  hover:dark:bg-gray-800 transition-all"
@@ -94,7 +92,7 @@ const Modelpurchaes = () => {
                             </table>
                         </div>
 
-                        {/* ✅ Mobile & Tablet Card View */}
+                        {/*  Mobile & Tablet Card View */}
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:hidden  ">
                             {mydata.map((data) => (
                                 <div
