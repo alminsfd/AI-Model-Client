@@ -1,16 +1,64 @@
-# React + Vite
+# AI Model Inventory Manager
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Live site (client):** https://ai-model-inventory-manager-85.web.app/
 
-Currently, two official plugins are available:
+A responsive, secure web application to manage an inventory of AI models. Users can add, view, edit, search, filter, and delete AI model entries. The app uses **Firebase** for authentication, **MongoDB** for persistent data storage, and a Node/Express backend API. Built with **React** (React Router) on the client and a self-hosted backend for CRUD operations and protected routes. The UI is designed to look modern and professional and to work well on mobile and desktop.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+##  Project Summary
+AI Model Inventory Manager helps teams and individuals catalogue AI models and associated information (name, framework, use case, dataset, description, image, purchase count). It supports user authentication, role-protected routes, and a pleasant UX for managing models.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+##  Key Features
+-  Firebase Authentication (signup, login, logout, protected/private routes)
+-  MongoDB for data persistence (models stored in a collection)
+-  React (client) + React Router for SPA navigation
+-  Self-hosted backend (Node.js + Express) handling CRUD operations
+- Add new model (name, framework, use case, dataset, description, image URL)
+-  Edit and update model entries
+-  Delete models
+-  Private routes for create/edit/delete actions
+-  Search bar + filtering by framework/use case
+-  Purchase count tracking (increment purchase count on purchase)
+-  Responsive, modern UI 
+-  Input validation and error handling
+-  Role-aware UI (creator/admin actions only visible to authorized users)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 🧰 Tech Stack
+**Frontend:**
+- React
+- React Router
+- Tailwind CSS
+- Axios
+
+**Backend:**
+- Node.js + Express
+- MongoDB (Atlas )
+
+
+**Auth:**
+- Firebase Authentication
+
+---
+
+
+## Contact
+**Project:** AI Model Inventory Manager  
+**Live site:** https://ai-model-inventory-manager-85.web.app/
+
+---
+
+### ⭐ Quick Highlights
+- Firebase Authentication
+- MongoDB for data storage
+- CRUD operations with Express backend
+- Protected routes
+- Search + filter functionality
+- Purchase count increment feature
+- Responsive and modern UI
+
+
