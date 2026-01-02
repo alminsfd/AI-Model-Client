@@ -63,7 +63,7 @@ AI Model Inventory Manager helps teams and individuals catalogue AI models and a
 
 ### 1️⃣ Clone the Repository
 ```bash
-git clone https://github.com/alminsfd/PublicFixHub-client-side.git
+git clone https://github.com/alminsfd/AI-Model-Client.git
 
 ## Run Locally
 npm install  
