@@ -61,4 +61,12 @@ AI Model Inventory Manager helps teams and individuals catalogue AI models and a
 - Purchase count increment feature
 - Responsive and modern UI
 
+### 1️⃣ Clone the Repository
+```bash
+git clone https://github.com/alminsfd/PublicFixHub-client-side.git
+
+## Run Locally
+npm install  
+npm run dev
+
 
