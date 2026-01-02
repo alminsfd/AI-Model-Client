@@ -61,6 +61,13 @@ AI Model Inventory Manager helps teams and individuals catalogue AI models and a
 - Purchase count increment feature
 - Responsive and modern UI
 
+## 📦 Dependencies
+- react
+- react-router
+- tailwindcss
+- firebase
+- axios
+
 ### 1️⃣ Clone the Repository
 ```bash
 git clone https://github.com/alminsfd/AI-Model-Client.git
