@@ -6,23 +6,28 @@ import useAuth from "../hooks/useAuth";
 import useNormalAxios from "../hooks/useNormalAxios";
 import { useNavigate } from "react-router";
 import { useState } from "react";
+import { useForm } from "react-hook-form";
 
 const Form = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm()
   const { user } = useAuth();
   const navigate = useNavigate();
   const instance = useNormalAxios();
   const [load, setLoad] = useState(false);
 
-  const handleFrom = (e) => {
-    e.preventDefault();
+  const handleFrom = (data) => {
     setLoad(true);
 
-    const model = e.target.name.value;
-    const framework = e.target.frameword.value;
-    const usecase = e.target.usecase.value;
-    const dataset = e.target.dataset.value;
-    const photo = e.target.photo.value;
-    const textfill = e.target.textfill.value;
+    const model = data.name
+    const framework = data.frameword
+    const usecase = data.usecase
+    const dataset = data.dataset
+    const photo = data.photo
+    const textfill = data.textfill
 
     const addModel = {
       name: model,
@@ -55,13 +60,11 @@ const Form = () => {
         }
       })
       .finally(() => setLoad(false));
-
-    e.target.reset();
   };
 
   return (
     <form
-      onSubmit={handleFrom}
+      onSubmit={handleSubmit(handleFrom)}
       className="flex flex-col gap-4 w-full mx-auto 
                  bg-base-100 p-6 rounded-2xl shadow-md 
                  border border-base-300 transition-colors duration-300"
@@ -81,72 +84,77 @@ const Form = () => {
         Model name:
         <input
           name="name"
-          required
           type="text"
           placeholder="Enter your model name"
           className="w-full p-3 mt-1 border border-base-300 rounded-lg 
                      bg-base-100 text-gray-800 dark:text-gray-200 
                      outline-none focus:border-cyan-500"
+          {...register("name", { required: true })}
         />
+        {errors.name && <span className="text-red-600 text-sm" >Name is required</span>}
       </label>
 
       <label className="w-full text-gray-800 dark:text-gray-200">
         Framework name:
         <input
           name="frameword"
-          required
+          {...register("frameword", { required: true })}
           type="text"
           placeholder="Enter your framework name"
           className="w-full p-3 mt-1 border border-base-300 rounded-lg 
                      bg-base-100 text-gray-800 dark:text-gray-200 
                      outline-none focus:border-cyan-500"
         />
+        {errors.frameword && <span className="text-red-600 text-sm" > Framework is required</span>}
       </label>
 
       <label className="w-full text-gray-800 dark:text-gray-200">
         Use case:
         <input
           name="usecase"
-          required
+          {...register("usecase", { required: true })}
           type="text"
           placeholder="Enter your use case"
           className="w-full p-3 mt-1 border border-base-300 rounded-lg 
                      bg-base-100 text-gray-800 dark:text-gray-200 
                      outline-none focus:border-cyan-500"
         />
+        {errors.usecase && <span className="text-red-600 text-sm" > Usecase is required</span>}
       </label>
 
       <label className="w-full text-gray-800 dark:text-gray-200">
         Dataset:
         <input
           name="dataset"
-          required
+          {...register("dataset", { required: true })}
           type="text"
           placeholder="Enter your dataset"
           className="w-full p-3 mt-1 border border-base-300 rounded-lg 
                      bg-base-100 text-gray-800 dark:text-gray-200 
                      outline-none focus:border-cyan-500"
         />
+        {errors.dataset && <span className="text-red-600 text-sm" > Dataset is required</span>}
       </label>
 
       <label className="w-full text-gray-800 dark:text-gray-200">
         Photo URL:
         <input
           name="photo"
-          required
+          {...register("photo", { required: true })}
           type="url"
           placeholder="Enter your photo URL"
           className="w-full p-3 mt-1 border border-base-300 rounded-lg 
                      bg-base-100 text-gray-800 dark:text-gray-200 
                      outline-none focus:border-cyan-500"
         />
+        {errors.photo && <span className="text-red-600 text-sm" > Photo is required</span>}
       </label>
 
       <label className="w-full text-gray-800 dark:text-gray-200">
         Description:
         <input
           name="textfill"
-          required
+          {...register("textfill", { required: true })}
           type="text"
           placeholder="Add some description"
           className="w-full p-3 mt-1 border border-base-300 rounded-lg 
@@ -154,6 +162,7 @@ const Form = () => {
                      outline-none focus:border-cyan-500"
         />
       </label>
+      {errors.photo && <span className="text-red-600 text-sm" > Description is required</span>}
 
       {/* Submit Button */}
       <button
