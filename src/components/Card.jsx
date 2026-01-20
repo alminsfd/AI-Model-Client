@@ -45,11 +45,11 @@ const Card = ({ cards }) => {
 
                     <Link
                       to={`/viewmodels/${card._id}`}
-                      className="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-blue-700 transition-colors"
+                      className="bg-cyan-500 hover:bg-sky-700 dark:hover:bg-cyan-400 text-white px-4 py-2 rounded-lg text-sm font-semibold  transition-colors"
                     >
                       View Details
                     </Link>
-                    <Link to='/' className="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-blue-700 transition-colors" >Go back</Link>
+                    <Link to='/' className="bg-cyan-500 hover:bg-sky-700 dark:hover:bg-cyan-400 text-white px-4 py-2 rounded-lg text-sm font-semibold  transition-colors" >Go back</Link>
                   </div>
                 </div>
               </div>

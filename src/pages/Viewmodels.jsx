@@ -1,5 +1,3 @@
-
-
 import React, { useEffect, useState } from "react";
 import useNormalAxios from "../hooks/useNormalAxios";
 import Card from "../components/Card";

@@ -39,7 +39,7 @@ const HomepageCard = ({cards}) => {
 
                             <Link
                                 to={`/viewmodels/${card._id}`}
-                                className="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-blue-700 transition-colors w-full text-center "
+                                className=" bg-cyan-500 hover:bg-sky-700 dark:hover:bg-cyan-400 text-white px-4 py-2 rounded-lg text-sm font-semibold  transition-colors w-full text-center "
                             >
                                 View Details
                             </Link>
