@@ -26,7 +26,7 @@ const Getstarted = () => {
 
                         <Link
                             to="/login"
-                            className="bg-cyan-500 hover:bg-sky-700 dark:hover:bg-cyan-400 dark:bg-sky-600  text-white font-semibold px-6 py-3 rounded-lg shadow-md transition-transform transform hover:scale-105"
+                            className="bg-cyan-500 hover:bg-cyan-700 dark:hover:bg-cyan-500 dark:bg-cyan-500  text-white font-semibold px-6 py-3 rounded-lg shadow-md transition-transform transform hover:scale-105"
                         >
                             Login
                         </Link>
