@@ -62,7 +62,7 @@ const Form = () => {
   return (
     <form
       onSubmit={handleFrom}
-      className="flex flex-col gap-4 max-w-sm mx-auto 
+      className="flex flex-col gap-4 w-full mx-auto 
                  bg-base-100 p-6 rounded-2xl shadow-md 
                  border border-base-300 transition-colors duration-300"
     >
