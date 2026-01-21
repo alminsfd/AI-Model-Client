@@ -49,7 +49,7 @@ export const router = createBrowserRouter([
       {
         path: '/viewmodels/:id',
         element:<Deatilspage></Deatilspage>,
-        loader: ({ params }) => fetch(`http://localhost:5000/allmodels/${params.id}`),
+        loader: ({ params }) => fetch(`https://ai-model-server-ashen.vercel.app/allmodels/${params.id}`),
         hydrateFallbackElement: <Loader></Loader>
 
       },
@@ -58,7 +58,7 @@ export const router = createBrowserRouter([
         element: <PrivateRoute>
           <UpdataModelpage></UpdataModelpage>
         </PrivateRoute>,
-        loader: ({ params }) => fetch(`http://localhost:5000/allmodels/${params.id}`),
+        loader: ({ params }) => fetch(`https://ai-model-server-ashen.vercel.app/allmodels/${params.id}`),
         hydrateFallbackElement: <Loader></Loader>
 
       },
