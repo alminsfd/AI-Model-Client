@@ -41,14 +41,19 @@ const Footer = () => {
 
                 <nav>
                     <h6 className="footer-title">Social Info</h6>
-                    <a className="link link-hover hover:text-[#ccc] text-white">Instagram</a>
-                    <a className="link link-hover hover:text-[#ccc] text-white"> Youtube </a>
-                    <a className="link link-hover hover:text-[#ccc] text-white">Facebook</a>
+                    <a href='https://www.instagram.com/ah5232041' target='_blank' className="link link-hover hover:text-[#ccc] text-white">Instagram</a>
+                    <a href='https://www.youtube.com' target='_blank' className="link link-hover hover:text-[#ccc] text-white"> Youtube </a>
+                    <a href='https://www.facebook.com' target='_blank' className="link link-hover hover:text-[#ccc] text-white">Facebook</a>
                     <a target='_blank' href='https://github.com/alminsfd?tab=repositories' className="link link-hover hover:text-[#ccc] text-white">GitHub </a>
+                </nav>
+                <nav>
+                    <h6 className="footer-title" >Contact info</h6>
+                    <span  className=" hover:text-[#ccc] text-white">phone :01577094870</span>
+                    <span className=" hover:text-[#ccc] text-white"> alaminhossaintanvir42@gmail.com </span>
                 </nav>
             </footer>
             
-            <div className="text-center mt-4 border-t border-gray-700 pt-4 text-sm font-medium text-black">
+            <div className="text-center mt-4 border-t border-gray-700 pt-4 text-sm font-medium text-white">
                 <p>Copyright © 2025 - All rights reserved by AI Model Inventory manager </p>
             </div>
         </div>

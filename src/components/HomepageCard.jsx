@@ -7,7 +7,7 @@ const HomepageCard = ({cards}) => {
             {cards.map((card) => (
                 <div
                     key={card._id}
-                    className="w-[340px] bg-linear-to-bl from-cyan-100 via-sky-300 to-teal-400  rounded-2xl shadow-md hover:shadow-xl transition-all duration-300"
+                    className="w-[340px] h-[460px] bg-linear-to-bl from-cyan-100 via-sky-300 to-teal-400 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 flex flex-col"
                 >
                     {/* Image */}
                     <div className="overflow-hidden rounded-t-2xl">
@@ -19,23 +19,26 @@ const HomepageCard = ({cards}) => {
                     </div>
 
                     {/* Content */}
-                    <div className="p-5">
+                    <div className="p-5  flex flex-col flex-1">
                         <h2 className="text-xl font-semibold text-white">
                             {card.name}
                         </h2>
 
                         <div className="text-white mt-2 space-y-1">
-                            <p className="text-sm">
+                            <p className="text-sm line-clamp-2 ">
                                 <span className="font-semibold">Framework:</span> {card.framework}
+                            </p>
+                            <p className="text-sm line-clamp-2">
+                                <span className="font-semibold">Use Case:</span> {card.useCase}
                             </p>
                             <p className="text-sm">
                                 <span className="font-semibold">Brif:</span> {card.description.length>20?
-                                card.description.slice(0,20)+'....':card.description}
+                                card.description.slice(0,80)+'....':card.description}
                             </p>
                         </div>
 
                         {/* Footer */}
-                        <div className="flex justify-between items-center mt-5 pt-3 border-t border-gray-200">
+                        <div className=" flex justify-between items-center mt-auto pt-3 border-t border-gray-200 ">
 
                             <Link
                                 to={`/viewmodels/${card._id}`}
