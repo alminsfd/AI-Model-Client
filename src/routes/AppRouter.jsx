@@ -48,9 +48,7 @@ export const router = createBrowserRouter([
       },
       {
         path: '/viewmodels/:id',
-        element: <PrivateRoute>
-          <Deatilspage></Deatilspage>
-        </PrivateRoute>,
+        element:<Deatilspage></Deatilspage>,
         loader: ({ params }) => fetch(`http://localhost:5000/allmodels/${params.id}`),
         hydrateFallbackElement: <Loader></Loader>
 

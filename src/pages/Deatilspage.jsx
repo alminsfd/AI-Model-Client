@@ -137,7 +137,7 @@ const Deatilspage = () => {
           </div>
 
           {/* Buttons */}
-          <div className="flex flex-wrap gap-4 mt-8">
+          {/* <div className="flex flex-wrap gap-4 mt-8">
             {isCreator ? (
               <>
                 <Link
@@ -169,7 +169,52 @@ const Deatilspage = () => {
             >
               Go Back
             </Link>
-          </div>
+          </div> */}
+
+          {isCreator ? (
+            <>
+              <Link
+                to={`/updatemodel/${_id}`}
+                className="px-6 py-3 rounded-xl border-2 border-blue-500 text-blue-600 dark:text-blue-400 font-semibold hover:bg-blue-50 dark:hover:bg-gray-800 transition"
+              >
+                Edit
+              </Link>
+
+              <button
+                onClick={handleDelete}
+                className="px-6 py-3 rounded-xl border-2 border-red-500 text-red-600 dark:text-red-400 font-semibold hover:bg-red-50 dark:hover:bg-gray-800 transition cursor-pointer"
+              >
+                Delete
+              </button>
+              <Link
+                to="/viewmodels"
+                className="px-6 py-3 rounded-xl bg-linear-to-r from-cyan-500 to-sky-600 hover:from-cyan-600 hover:to-sky-700 text-white font-semibold shadow-md transition"
+              >
+                Go Back
+              </Link>
+            </>
+          ) : (
+            <button
+              onClick={user ? handlepurchase : null}
+              disabled={!user}
+                title={!user ? "Please login to purchase this model" : ""}
+              className={`px-6 py-3 rounded-xl font-semibold shadow-md transition
+      ${user
+                  ? "bg-linear-to-r from-cyan-500 to-sky-600 hover:from-cyan-600 hover:to-sky-700 text-white cursor-pointer"
+                  : "bg-gray-300 dark:bg-gray-700 text-gray-500 cursor-not-allowed opacity-70"
+                }
+    `}
+            >
+              {user ? "Purchase Model" : "Login to Purchase"}
+            </button>
+          )}
+          <Link
+            to="/viewmodels"
+            className="px-6 py-3 rounded-xl bg-linear-to-r from-cyan-500 to-sky-600 hover:from-cyan-600 hover:to-sky-700 text-white font-semibold shadow-md transition ml-6"
+          >
+            Go Back
+          </Link>
+
 
           <div className="mt-6 text-sm text-gray-500 dark:text-gray-400">
             Created by:{" "}
