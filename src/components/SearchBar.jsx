@@ -3,7 +3,7 @@ import { Search } from "lucide-react";
 import useNormalAxios from "../hooks/useNormalAxios";
 
 
-const SearchBar = ({ placeholder = "Search...",setCard }) => {
+const SearchBar = ({ placeholder = "Search by AI name...",setCard }) => {
     const [query, setQuery] = useState("");
     const [load,setLoad]=useState(false)
     const instance = useNormalAxios();

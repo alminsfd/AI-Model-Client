@@ -136,41 +136,7 @@ const Deatilspage = () => {
             </div>
           </div>
 
-          {/* Buttons */}
-          {/* <div className="flex flex-wrap gap-4 mt-8">
-            {isCreator ? (
-              <>
-                <Link
-                  to={`/updatemodel/${_id}`}
-                  className="px-6 py-3 rounded-xl border-2 border-blue-500 text-blue-600 dark:text-blue-400 font-semibold hover:bg-blue-50 dark:hover:bg-gray-800 transition"
-                >
-                  Edit
-                </Link>
-
-                <button
-                  onClick={handleDelete}
-                  className="px-6 py-3 rounded-xl border-2 border-red-500 text-red-600 dark:text-red-400 font-semibold hover:bg-red-50 dark:hover:bg-gray-800 transition cursor-pointer "
-                >
-                  Delete
-                </button>
-              </>
-            ) : (
-              <button
-                onClick={handlepurchase}
-                className="px-6 py-3 rounded-xl bg-linear-to-r from-cyan-500 to-sky-600 hover:from-cyan-600 hover:to-sky-700 text-white font-semibold shadow-md transition cursor-pointer "
-              >
-                Purchase Model
-              </button>
-            )}
-
-            <Link
-              to="/viewmodels"
-              className="px-6 py-3 rounded-xl bg-linear-to-r from-cyan-500 to-sky-600 hover:from-cyan-600 hover:to-sky-700 text-white font-semibold shadow-md transition"
-            >
-              Go Back
-            </Link>
-          </div> */}
-
+         
           {isCreator ? (
             <>
               <Link
@@ -182,16 +148,11 @@ const Deatilspage = () => {
 
               <button
                 onClick={handleDelete}
-                className="px-6 py-3 rounded-xl border-2 border-red-500 text-red-600 dark:text-red-400 font-semibold hover:bg-red-50 dark:hover:bg-gray-800 transition cursor-pointer"
+                className=" ml-2 px-6 py-3 rounded-xl border-2 border-red-500 text-red-600 dark:text-red-400 font-semibold hover:bg-red-50 dark:hover:bg-gray-800 transition cursor-pointer"
               >
                 Delete
               </button>
-              <Link
-                to="/viewmodels"
-                className="px-6 py-3 rounded-xl bg-linear-to-r from-cyan-500 to-sky-600 hover:from-cyan-600 hover:to-sky-700 text-white font-semibold shadow-md transition"
-              >
-                Go Back
-              </Link>
+              
             </>
           ) : (
             <button
